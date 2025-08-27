@@ -1,4 +1,5 @@
 <?php
+include("../includes/auth.php");
 include("../includes/navbar.php");
 include("../includes/conexao.php");
 

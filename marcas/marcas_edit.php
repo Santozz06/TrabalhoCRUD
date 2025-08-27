@@ -1,8 +1,14 @@
 <?php
+include("../includes/auth.php");
 include("../includes/navbar.php");
 include("../includes/conexao.php");
 
-$id = $_GET['id'];
+if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
+    echo "<script>alert('ID inválido ou não informado'); window.location='marcas_list.php';</script>";
+    exit();
+}
+
+$id = intval($_GET['id']);
 $sql = "SELECT * FROM marcas WHERE id=$id";
 $result = mysqli_query($con, $sql);
 $marca = mysqli_fetch_assoc($result);

@@ -1,4 +1,5 @@
 <?php
+include("../includes/auth.php");
 include("../includes/conexao.php");
 
 $id = $_POST['id'] ?? '';
@@ -8,9 +9,9 @@ $potencia = $_POST['potencia'];
 $ano = $_POST['ano'];
 $tipo = $_POST['tipo'];
 
-if($id){ // update
+if($id){ 
     $sql = "UPDATE veiculos SET modelo='$modelo', id_marca=$id_marca, potencia=$potencia, ano=$ano, tipo='$tipo' WHERE id=$id";
-}else{ // insert
+}else{ 
     $sql = "INSERT INTO veiculos (modelo, id_marca, potencia, ano, tipo) VALUES ('$modelo',$id_marca,$potencia,$ano,'$tipo')";
 }
 

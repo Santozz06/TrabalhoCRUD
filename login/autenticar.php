@@ -24,13 +24,15 @@ if(isset($_POST['login'])){
             $_SESSION['usuario_nome'] = $row['nome'];
             $_SESSION['logado'] = true;
 
-            header("Location: ../veiculos/veiculos_list.php");
+            header("Location: ../veiculos/veiculos_list.php?status=success");
             exit();
         } else {
-            echo "<script>alert('Usuário ou senha inválidos'); window.location='login.php';</script>";
+            header("Location: login.php?status=erro");
+            exit();
         }
     } else {
-        echo "<script>alert('Usuário ou senha inválidos'); window.location='login.php';</script>";
+        header("Location: login.php?status=erro");
+        exit();
     }
 } else {
     header("Location: login.php");
